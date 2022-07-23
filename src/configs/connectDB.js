@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 
-const mongodb_url = 'mongodb://localhost:27017/QLHD-HNN'
+const mongodb_url = 'mongodb://localhost1111:27017/QLHD-HNN'
 
 class Database {
     constructor() {
