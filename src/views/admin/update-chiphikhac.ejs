@@ -1,0 +1,45 @@
+<head>
+    <title>Title</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <%-include('../headercss') %>
+
+</head>
+
+<body>
+    <%- include( '../navbar')%>
+        <div class="container">
+
+            <h1>UPDATE CHI CHÍ KHÁC</h1>
+            <form name="formnhap" action="/update/<%= chiphikhac._id %>" method="POST" onsubmit="return validate()">
+                <div class="form-group">
+                    <label>Nội dung</label>
+                    <input class="form-control" type="text" name='noidung' value="<%= chiphikhac.noidung %>">
+                </div>
+                <div class="form-group">
+                    <label>Số tiền</label>
+                    <input class="form-control" type="text" name='sotien' id="sotien" value="<%= chiphikhac.sotien %>">
+                    <span id="so" textcolor="red"></span>
+                </div>
+                <div class="form-group">
+                    <label>Ghi chú</label>
+                    <input class="form-control" type="text" name='ghichu' value="<%= chiphikhac.ghichu %>">
+
+                </div>
+                <input id="add-btn" class="btn btn-primary pull-right" type="submit" value="Save">
+            </form>
+        </div>
+
+        <!-- jQuery -->
+        <script src="../public/js/AutoIncrement.js"></script>
+        <script>
+            function validate() {
+                var num = document.formnhap.sotien.value;
+                if (isNaN(num)) {
+                    document.getElementById("so").innerHTML = "Phải nhập số";
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        </script>
+</body>

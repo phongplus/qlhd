@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiphivon</title>
+    <%-include('../views/headercss') %>
+</head>
+
+<body>
+    <%- include( '../views/navbar')%>
+        <div class="container">
+            <h1>BẢNG CHI TIẾT CHI PHÍ VỐN</h1>
+            <!-- <a href="/add-chiphivon" class="btn btn-primary pull-right">Thêm chi phí vốn</a> -->
+            <form action="/add-chiphivon" method="get">
+                <input class="btn btn-primary btn-sm pull-right" type="submit" value="Thêm chi phí vốn">
+                <table id="customers">
+                    <thead>
+                        <tr>
+                            <th>Ngày</th>
+                            <th>Diễn giải</th>
+                            <th>Số tiền KH trả</th>
+                            <th>Số tiền TT NTP</th>
+                            <th>Số tiền hàng còn nợ</th>
+                            <th>Số ngày</th>
+                            <th>Lãi suất</th>
+                            <th>Chi phí lãi vay</th>
+                            <th>Ghi chú</th>
+                            <th>Action </th>
+                        </tr>
+                    </thead>
+                    <td>Ngày</td>
+                    <td>Diễn giải</td>
+                    <td>Số tiền KH trả</td>
+                    <td>Số tiền TT NTP</td>
+                    <td>Số tiền hàng còn nợ</td>
+                    <td>Số ngày</td>
+                    <td>Lãi suất</td>
+                    <td>Chi phí lãi vay</td>
+                    <td>Ghi chú</td>
+                    <td>
+                        <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                        <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                    </td>
+                    </tr>
+
+                </table>
+            </form>
+            <script>
+                function handleUpdateProduct(value) {
+                    $(location).attr('href', '/update-product/' + value);
+                }
+            </script>
+        </div>
+</body>
+
+</html

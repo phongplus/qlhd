@@ -1,0 +1,101 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiphivon</title>
+    <%-include('../views/headercss') %>
+</head>
+
+<body>
+    <%- include( '../views/navbar')%>
+        <div class="container">
+            <h1>THÊM CHI PHÍ VỐN</h1>
+            <form action="/chiphivon" method="get">
+
+                <table id="customers">
+                    <thead>
+                        <tr>
+                            <th>Ngày</th>
+                            <th>Diễn giải</th>
+                            <th>Số tiền KH trả</th>
+                            <th>Số tiền TT NTP</th>
+                            <th>Số tiền hàng còn nợ</th>
+                            <th>Số ngày</th>
+                            <th>Lãi suất</th>
+                            <th>Chi phí lãi vay</th>
+                            <th>Ghi chú</th>
+
+                        </tr>
+                    </thead>
+                    <td>
+                        <div class="form-group">
+
+                            <input class="form-control" type="text" name='ngay' placeholder="Nhập ngày">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+
+                            <input class="form-control" type="text" name='diengiai' placeholder="Diễn giải">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+
+                            <input class="form-control" type="text" name='sotienkhtra' placeholder="Số tiền KH trả">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+
+                            <input class="form-control" type="text" name='sotienttntp' placeholder="Số tiền TT NTP">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+
+                            <input class="form-control" type="text" name='sotienhangconno' placeholder="Số tiền hàng còn nợ">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+
+                            <input class="form-control" type="text" name='songay' placeholder="Nhập số ngày">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+
+                            <input class="form-control" type="text" name='laixuat' placeholder="Nhập lãi xuất">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+
+                            <input class="form-control" type="text" name='chiphilaivay' placeholder="Chi phí lãi vay">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+
+                            <input class="form-control" type="text" name='ghichu' placeholder="Nhập ghi chú">
+                        </div>
+                    </td>
+                    </tr>
+                </table>
+                <br>
+                <input id="add-btn" class="btn btn-primary pull-right" type="submit" value="Save">
+            </form>
+
+
+            <script>
+                function handleUpdateProduct(value) {
+                    $(location).attr('href', '/update-product/' + value);
+                }
+            </script>
+        </div>
+</body>
+
+</html

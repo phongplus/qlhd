@@ -1,0 +1,118 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chitiethanghoa</title>
+    <%-include('../views/headercss') %>
+</head>
+
+<body>
+    <%- include( '../views/navbar')%>
+        <div class="container">
+
+            <h1>BẢNG CHI TIẾT HÀNG HÓA</h1>
+            <!-- <a href="/add-hanghoa" class="btn btn-primary pull-right">Thêm hàng hóa</a> -->
+            <form action="/add-hanghoa" method="POST">
+                <input class="btn btn-primary btn-sm pull-right" type="submit" value="Thêm hàng hóa">
+                <table id="customers">
+                    <tr>
+                        <th rowspan="2">STT</th>
+                        <th rowspan="2" width="15%">Tên hàng</th>
+                        <th rowspan="2" width="5%">Số lượng </th>
+                        <th colspan="3 ">Giá vốn hàng bán (Giá kho)</th>
+                        <th colspan="2 ">Doanh số (Giá bán)</th>
+                        <th rowspan="2 " width="15%">Ghi chú </th>
+                        <th rowspan="2">Action</th>
+                    </tr>
+                    <tr>
+                        <th>Đơn giá FOB <br> (EX-W) - (VNĐ)</th>
+                        <th>Đơn giá kho <br>(VNĐ)</th>
+                        <th>Đơn giá bán <br> (VNĐ)</th>
+                        <th>Thành tiền <br>(VNĐ)</th>
+                        <th>Doanh số <br>(Giá bán)</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>NB X60 IBM</td>
+                        <td> 10 </td>
+                        <td></td>
+                        <td>50.200.000</td>
+                        <td>502.000.000</td>
+                        <td>65.000.000</td>
+                        <td>650.000.000</td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>UPS APC</td>
+                        <td> 2 </td>
+                        <td></td>
+                        <td>1.200.000</td>
+                        <td>2.400.000</td>
+                        <td>1.800.000</td>
+                        <td>3.600.000</td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Domain Controller</td>
+                        <td> 1 </td>
+                        <td></td>
+                        <td>11.100.000</td>
+                        <td>11.100.000</td>
+                        <td>15.000.000</td>
+                        <td>15.000.000</td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>ISA Server</td>
+                        <td> 1 </td>
+                        <td></td>
+                        <td>22.200.000</td>
+                        <td>22.200.000</td>
+                        <td>40.000.000</td>
+                        <td>40.000.000</td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="5 ">TỔNG CỘNG</td>
+                        <td>537.700.000</td>
+                        <td></td>
+                        <td>708.600.000</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </table>
+            </form>
+
+        </div>
+        <!-- <a href="/add-chiphikhac " class="btn btn-success float-right ">Thêm chi phí khác</a>
+        <script>
+            function handleUpdateProduct(value) {
+                $(location).attr('href', '/update-product/' + value);
+            }
+        </script> -->
+</body>
+
+</html>

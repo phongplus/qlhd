@@ -1,0 +1,389 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chiphitrienkhai</title>
+    <%-include('../views/headercss') %>
+</head>
+
+<body>
+    <%- include( '../views/navbar')%>
+        <div class="container">
+
+            <h1>BẢNG CHI TIẾT DỰ TRÙ CHI PHÍ TRIỂN KHAI</h1>
+            <h2>CÔNG TY: ... HĐ SỐ: ...</h2>
+            <!-- <a href="/add-chiphitrienkhai" class="btn btn-primary pull-right">Thêm Dự trù chi phi triển khai</a> -->
+            <form action="/add-chiphitrienkhai" method="get">
+                <input class="btn btn-primary btn-sm pull-right" type="submit" value="Thêm chi phí triển khai">
+                <table id="customers">
+                    <tr>
+                        <th rowspan="2">TT</th>
+                        <th rowspan="2" width="15%">Nội dung dự trù</th>
+                        <th rowspan="2" width="5%">Đơn vị </th>
+                        <th rowspan="2" width="5%">Đơn giá </th>
+                        <th colspan="2 ">Số lượng</th>
+                        <th rowspan="2 ">Thành tiền</th>
+                        <th rowspan="2 ">??????????</th>
+                        <th rowspan="2 " width="10%">Ghi chú </th>
+                        <th rowspan="2 " width="10%">Nhóm/cá nhân <br>dự trù </th>
+                        <th rowspan="2">Action</th>
+                    </tr>
+                    <tr>
+                        <th>Ngày/lượt)</th>
+                        <th>Người</th>
+
+                    </tr>
+                    <tr>
+                        <td colspan="11">A. CHI PHÍ CHUNG</td>
+                    </tr>
+                    <tr>
+                        <td>I.</td>
+                        <td>Chi phí tiếp khách</td>
+                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Công ty A</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Công ty B</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>II. </td>
+                        <td>Chi phí hỗ trợ cho toàn dự án</td>
+                        <td> 1 </td>
+                        <td></td>
+                        <td>11.100.000</td>
+                        <td>11.100.000</td>
+                        <td>15.000.000</td>
+                        <td>15.000.000</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1. </td>
+                        <td></td>
+                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2. </td>
+                        <td></td>
+                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">CỘNG II </td>
+                        <td>CỘNG II</td>
+                        <td> CỘNG II </td>
+                        <td>CỘNG II</td>
+                        <td>CỘNG II</td>
+                        <td>CỘNG II</td>
+                        <td>CỘNG II</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="11">B. CHI PHÍ TRIỂN KHAI</td>
+                    </tr>
+                    <tr>
+                        <td>I.</td>
+                        <td>Giao đoạn 1 ....</td>
+                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Công ty A</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Công ty B</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td>CỘNG I </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>II. </td>
+                        <td>Giao đoạn 2 .....</td>
+                        <td> 1 </td>
+                        <td></td>
+                        <td>11.100.000</td>
+                        <td>11.100.000</td>
+                        <td>15.000.000</td>
+                        <td>15.000.000</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1. </td>
+                        <td></td>
+                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2. </td>
+                        <td></td>
+                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">CỘNG II </td>
+                        <td>CỘNG II</td>
+                        <td> CỘNG II </td>
+                        <td>CỘNG II</td>
+                        <td>CỘNG II</td>
+                        <td>CỘNG II</td>
+                        <td>CỘNG II</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>III. </td>
+                        <td>Giao đoạn 3 .....</td>
+                        <td> 1 </td>
+                        <td></td>
+                        <td>11.100.000</td>
+                        <td>11.100.000</td>
+                        <td>15.000.000</td>
+                        <td>15.000.000</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1. </td>
+                        <td></td>
+                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2. </td>
+                        <td></td>
+                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">CỘNG III </td>
+                        <td>CỘNG III</td>
+                        <td> CỘNG III </td>
+                        <td>CỘNG III</td>
+                        <td>CỘNG III</td>
+                        <td>CỘNG III</td>
+                        <td>CỘNG III</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary btn-sm" type="button" value="Update" onclick="handleUpdateProduct('')">
+                            <input class="btn btn-primary btn-sm" type="button" value="Delete" onclick="handleUpdateProduct('')">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="5 ">CỘNG B: </td>
+                        <td>537.700.000</td>
+                        <td></td>
+                        <td>708.600.000</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5 ">TỔNG CHI PHÍ DỰ ÁN (A+B) </td>
+                        <td>537.700.000</td>
+                        <td></td>
+                        <td>708.600.000</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+        </div>
+        <!-- <a href="/add-chiphikhac " class="btn btn-success float-right ">Thêm chi phí khác</a>
+        <script>
+            function handleUpdateProduct(value) {
+                $(location).attr('href', '/update-product/' + value);
+            }
+        </script> -->
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiphibaolanh</title>
+    <%-include('../views/headercss') %>
+</head>
+
+<body>
+    <%- include( '../views/navbar')%>
+        <div class="container">
+            <h1>THÊM CHI PHÍ LÀM THƯ BẢO LÃNH</h1>
+            <!-- <a href="/add-mandaykysu" class="btn btn-primary pull-right">Thêm Manday kỹ sư</a> -->
+            <form action="/chiphibaolanh" method="get">
+
+                <table id="customers">
+                    <thead>
+                        <tr>
+                            <th width="5%">STT</th>
+                            <th width="25%">Nội dung</th>
+                            <th>Giá trị thư bảo lãnh</th>
+                            <th width="5%">Số tháng bảo lãnh</th>
+                            <th width="5%">Tỉ lệ phí (Năm) </th>
+                            <th>Thành tiền</th>
+                            <th width="25%">Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td><input class="form-control" type="text" name='stt' placeholder="STT"></td>
+                        <td><input class="form-control" type="text" name='noidung' placeholder="Nhập nội dung"></td>
+                        <td><input class="form-control" type="text" name='giatri' placeholder="Nhập Giá trị "></td>
+                        <td><input class="form-control" type="text" name='sothang' placeholder="Nhập Số tháng"></td>
+                        <td><input class="form-control" type="text" name='tilephi' placeholder="Nhập Tỉ lệ phí"></td>
+                        <td><input class="form-control" type="text" name='thanhtien' placeholder="Không nhập"></td>
+                        <td><input class="form-control" type="text" name='ghichu' placeholder="Nhập Ghi chú "></td>
+                    </tr>
+                </table>
+                <input class="btn btn-primary btn-sm pull-right" type="submit" value="Save">
+            </form>
+            <script>
+                function handleUpdateProduct(value) {
+                    $(location).attr('href', '/update-product/' + value);
+                }
+            </script>
+        </div>
+</body>
+
+</html>
