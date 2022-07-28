@@ -4,7 +4,7 @@ const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 3000;
 //cấu hình view engine
-import configViewEngine from './src/configs/ViewEngine';
+import configViewEngine from './home/qlhd_hnn/src/configs/ViewEngine';
 configViewEngine(app);
 //Cấu hình midleware hỗ trợ send dữ liệu trong form về Server
 app.use(express.urlencoded({ extended: true }));
