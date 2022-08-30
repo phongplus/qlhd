@@ -1,0 +1,55 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": ""
+}
+
+
+###
+
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "HoangHon",
+  "password": "jim"
+}
+
+###
+
+POST http://localhost:4000/api/posts
+Content-Type: application/json
+Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTI2MzN9.0eb78esUSea4pK9VwCpT7WQ2lHNAqNIcn-SNPuMUSgU
+
+{
+  "title": "A",
+  "description": "React",
+  "url": "react.com",
+  "status": "TO LEARN"
+}
+###
+
+GET http://localhost:4000/api/posts
+Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTI2MzN9.0eb78esUSea4pK9VwCpT7WQ2lHNAqNIcn-SNPuMUSgU
+
+
+
+###
+
+PUT http://localhost:4000/api/posts/62ee6d63402cf915c46dcadb
+Content-Type: application/json
+Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTI2MzN9.0eb78esUSea4pK9VwCpT7WQ2lHNAqNIcn-SNPuMUSgU
+
+{
+  "title": "Vueeeeee",
+  "description": "VUEEEEE",
+  "url": "https://vuejs.org",
+  "status": "LEARNING"
+}
+
+###
+
+DELETE http://localhost:4000/api/posts/62ee6d63402cf915c46dcadb
+Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTI2MzN9.0eb78esUSea4pK9VwCpT7WQ2lHNAqNIcn-SNPuMUSgU

@@ -1,0 +1,69 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "HoangHon",
+  "password": "jim"
+}
+
+###
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "123"
+}
+
+### Test thêm chi phí thu bảo lãnh
+POST http://localhost:5000/api/ChiPhiVon/insert
+Content-Type: application/json
+Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTY3OTB9.zgU34WZI9r-xvlFvqJ3k47veTbD6fJSUQ5l3zbvgwlA
+
+{
+  "giavon" : 100000,
+  "giaban" : 200000,
+  "giatridaura" : 300000 ,
+  "ngay": "06/08/2022",
+  "diengiai": "Cần hỏi lại",
+  "sotienKHtra":500000,
+   //sotienTTNTP,
+   //"sotienhangconno": 50000,
+   "songay":2,
+   "laisuat":0.08,
+   //"chiphilaivay": ,
+  "ghichu": "Chú ý số tiền hàng còn nợ trước chưa có"
+}
+
+###test get chiphithubaolanh
+
+GET http://localhost:5000/api/ChiPhiVon
+Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTY3OTB9.zgU34WZI9r-xvlFvqJ3k47veTbD6fJSUQ5l3zbvgwlA
+###
+
+PUT http://localhost:5000/api/ChiPhiVon/62eef51a5f82a633243c6f6d
+Content-Type: application/json
+Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTY3OTB9.zgU34WZI9r-xvlFvqJ3k47veTbD6fJSUQ5l3zbvgwlA
+
+{
+  "giavon" : 100000,
+  "giaban" : 200000,
+  "giatridaura" : 300000 ,
+  "ngay": "06/08/2022",
+  "diengiai": "Cần hỏi lại CẬP NHẬT",
+  "sotienKHtra":1500000,
+   //sotienTTNTP,
+   //"sotienhangconno": 50000,
+   "songay":2,
+   "laisuat":0.08,
+   //"chiphilaivay": ,
+  "ghichu": "Chú ý số tiền hàng còn nợ trước chưa có"
+}
+
+###
+
+DELETE http://localhost:5000/api/ChiPhiVon/62eef4035f82a633243c6f64
+Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTQzNzR9.eG_Ys9DqeY-7wAKjNqlLineYRPlpewNgNDuJS9_ISQM
+
+
