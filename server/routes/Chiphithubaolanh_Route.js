@@ -88,7 +88,7 @@ router.put('/:id', verifyToken, async(req, res) => {
 
         res.json({
             success: true,
-            message: 'Excellent progress!',
+            message: 'Update Successful!',
             updatedChiphithubaolanh: updatedChiphithubaolanh //được sử dụng trong dev frontend
         })
     } catch (error) {

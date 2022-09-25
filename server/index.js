@@ -5,12 +5,13 @@ const cors = require('cors')
 
 const authRouter = require('./routes/Auth_Route')
 const postRouter = require('./routes/Post_Route')
+const userRouter = require('./routes/Users_Route')
 const chiphikhacRouter = require('./routes/Chiphikhac_Route')
 const chiphithubaolanhRouter = require('./routes/Chiphithubaolanh_Route')
 const mandaykysuRouter = require('./routes/MandayKysu_Route')
 const chiPhiVon_Route = require('./routes/ChiPhiVon_Route')
 const ChiTietHangHoa_Route = require('./routes/ChiTietHangHoa_Route')
-
+const PhongbanRouter = require('./routes/Phongban_Route')
 
 
 const connectDB = async() => {
@@ -43,12 +44,13 @@ app.use(cors())
 
 app.use('/api/auth', authRouter)
 app.use('/api/posts', postRouter)
+app.use('/api/users', userRouter)
 app.use('/api/chiphikhac', chiphikhacRouter)
 app.use('/api/chiphithubaolanh', chiphithubaolanhRouter)
 app.use('/api/mandaykysu', mandaykysuRouter)
 app.use('/api/chiphivon', chiPhiVon_Route)
 app.use('/api/chitiethanghoa', ChiTietHangHoa_Route)
-
+app.use('/api/phongban', PhongbanRouter)
 
 const PORT = process.env.PORT || 5000
 

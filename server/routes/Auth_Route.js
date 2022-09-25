@@ -25,10 +25,10 @@ router.get('/', verifyToken, async(req, res) => {
 // @desc Register user
 // @access Public
 router.post('/register', async(req, res) => {
-    const { username, password } = req.body
-
+    const { username, password, roleId } = req.body
+        console.log(username, password, roleId)
     // Simple validation
-    if (!username || !password)
+    if (!username || !password || roleId == null)
         return res
             .status(400)
             .json({ success: false, message: 'Missing username and/or password' })
@@ -44,7 +44,7 @@ router.post('/register', async(req, res) => {
 
         // All good
         const hashedPassword = await argon2.hash(password)
-        const newUser = new User({ username, password: hashedPassword })
+        const newUser = new User({ username, password: hashedPassword,roleId })
         await newUser.save()
 
         // Return token
@@ -68,6 +68,7 @@ router.post('/register', async(req, res) => {
 // @access Public
 router.post('/login', async(req, res) => {
     const { username, password } = req.body
+    console.log(username)
 
     // Simple validation
     if (!username || !password)

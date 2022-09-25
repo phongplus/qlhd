@@ -56,10 +56,10 @@ router.post('/insert', verifyToken, async(req, res) => {
 
         await newChiTietHangHoa.save()
 
-        res.json({ success: true, message: 'Thêm thành công ChiTietHangHoa', ChiTietHangHoa: newChiTietHangHoa })
+        res.json({ success: true, message: 'Thêm thành công!', ChiTietHangHoa: newChiTietHangHoa })
     } catch (error) {
         console.log(error)
-        res.status(500).json({ success: false, message: 'Internal server error' })
+        res.status(500).json({ success: false, message: 'Lỗi kết nối đến server' })
     }
 })
 

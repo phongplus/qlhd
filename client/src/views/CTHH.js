@@ -61,12 +61,9 @@ const CTHH = () => {
 		body = (
 			<>
 				<Card className='text-center mx-5 my-5'>
-					<Card.Header as='h1'>Hi {username}</Card.Header>
+					<Card.Header as='h1'>CHI TIẾT HÀNG HÓA</Card.Header>
 					<Card.Body>
-						<Card.Title>Welcome CHI TIẾT HÀNG HÓA</Card.Title>
-						<Card.Text>
-							Chưa có Dữ liệu
-						</Card.Text>
+						<Card.Title>Chưa có dữ liệu</Card.Title>
 						<Button
 							variant='primary'
 							onClick={setShowAddCTHHModal.bind(this, true)}

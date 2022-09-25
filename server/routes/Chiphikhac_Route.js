@@ -8,7 +8,7 @@ const Chiphikhac = require('../models/Chiphikhac_Model')
 // @access Private
 router.get('/', verifyToken, async(req, res) => {
     try {
-        const DataChiphikhac = await Chiphikhac.find({ user: req.userId }).populate('user', [
+        const DataChiphikhac = await Chiphikhac.find().populate('user', [//{ user: req.userId }
             'username'
         ])
         res.json({ success: true, DataChiphikhac })

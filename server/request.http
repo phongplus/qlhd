@@ -1,55 +1,68 @@
-POST http://localhost:5000/api/auth/register
+
+POST http://localhost:5000/api/users/adduser
+Content-Type: application/json
+
+{
+  "username": "Hon",
+  "password": "123",
+  "fullname": "Nguyễn Hoàng Hôn",
+  "email": "nhhon110100@gmail.com",
+  "sex": 1,
+  "roleId": 1,
+  "role": "Admin",
+  "status": 1
+}
+
+
+###
+
+POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
   "username": "admin",
-  "password": ""
+  "password": "123"
 }
-
 
 ###
 
-POST http://localhost:4000/api/auth/login
+POST http://localhost:5000/api/users/adduser
 Content-Type: application/json
+Authorization: Admin  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzFiZjg5ZDllNmU0NTJmNTAzMzM3NzciLCJpYXQiOjE2NjI4ODI1Nzl9.tfAl43gCeNr-79_hIPxtj_Y8xxWmxRJVyDWf13Dc3b0
 
 {
-  "username": "HoangHon",
-  "password": "jim"
+  "username": "Hon",
+  "password": "123",
+  "fullname": "Nguyễn Hoàng Hôn",
+  "email": "nhhon110100@gmail.com",
+  "sex": 1,
+  "roleId": 1,
+  "role": "Admin",
+  "status": 1
 }
+###
+
+GET http://localhost:5000/api/users
+Authorization: Admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzFiZjg5ZDllNmU0NTJmNTAzMzM3NzciLCJpYXQiOjE2NjI4ODQzMjV9.iSvCMjHQYW_tMnNikc6f6skyQNyOK2QIYa58Mg5tA1k
 
 ###
 
-POST http://localhost:4000/api/posts
+PUT http://localhost:5000/api/users/631bf98389f87c960ca522cc
 Content-Type: application/json
-Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTI2MzN9.0eb78esUSea4pK9VwCpT7WQ2lHNAqNIcn-SNPuMUSgU
+Authorization: Admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzFiZjg5ZDllNmU0NTJmNTAzMzM3NzciLCJpYXQiOjE2NjI4ODQzMjV9.iSvCMjHQYW_tMnNikc6f6skyQNyOK2QIYa58Mg5tA1k
 
 {
-  "title": "A",
-  "description": "React",
-  "url": "react.com",
-  "status": "TO LEARN"
-}
-###
-
-GET http://localhost:4000/api/posts
-Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTI2MzN9.0eb78esUSea4pK9VwCpT7WQ2lHNAqNIcn-SNPuMUSgU
-
-
-
-###
-
-PUT http://localhost:4000/api/posts/62ee6d63402cf915c46dcadb
-Content-Type: application/json
-Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTI2MzN9.0eb78esUSea4pK9VwCpT7WQ2lHNAqNIcn-SNPuMUSgU
-
-{
-  "title": "Vueeeeee",
-  "description": "VUEEEEE",
-  "url": "https://vuejs.org",
-  "status": "LEARNING"
+  "username": "user",
+  "password": "123",
+  "fullname": "Nguyễn Hoàng Hôn",
+  "email": "nhhon110100@gmail.com",
+  "sex": 1,
+  "roleId": 1,
+  "role": "Admin",
+  "status": 1
 }
 
 ###
 
-DELETE http://localhost:4000/api/posts/62ee6d63402cf915c46dcadb
-Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NTk3OTI2MzN9.0eb78esUSea4pK9VwCpT7WQ2lHNAqNIcn-SNPuMUSgU
+DELETE http://localhost:5000/api/users/631d8f3e3bc2293bd4b438c4
+Authorization: Admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzFiZjg5ZDllNmU0NTJmNTAzMzM3NzciLCJpYXQiOjE2NjI4ODQzMjV9.iSvCMjHQYW_tMnNikc6f6skyQNyOK2QIYa58Mg5tA1k
