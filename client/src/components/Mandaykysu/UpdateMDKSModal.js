@@ -19,7 +19,7 @@ const UpdateMDKSModal = () => {
 
 	useEffect(() => setUpdatedMDKS(MDKS), [MDKS])
 
-	const { hesotinhthanhtien,phongban, mandaychuan, songuoi, songaythuchien, thanhtien, ghichu } = updatedMDKS //note
+	const { TygiaUSD,phongban, mandaychuan, songuoi, songaythuchien, thanhtien, ghichu } = updatedMDKS //note
 
 	const onChangeUpdatedMDKSForm = event =>
 		setUpdatedMDKS({ ...updatedMDKS, [event.target.name]: event.target.value })
@@ -55,10 +55,10 @@ const UpdateMDKSModal = () => {
 						<Form.Control
 							type='text'
 							placeholder='22,400'
-							name='hesotinhthanhtien'
+							name='TygiaUSD'
 							required
 							aria-describedby='title-help'
-							value={hesotinhthanhtien}
+							value={TygiaUSD}
 							onChange={onChangeUpdatedMDKSForm}
 						/>
 					</Form.Group>

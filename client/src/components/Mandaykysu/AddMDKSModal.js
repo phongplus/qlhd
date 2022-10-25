@@ -1,6 +1,7 @@
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+
 import { useContext, useState } from 'react'
 import { MDKSContext } from '../../contexts/MDKSContext'
 
@@ -15,7 +16,7 @@ const AddMDKSModal = () => {
 
 	// State
 	const [newMDKS, setNewMDKS] = useState({
-		hesotinhthanhtien:'',
+		TygiaUSD:'',
 		phongban: '',
 		mandaychuan:'',
 		songuoi: '',
@@ -24,7 +25,7 @@ const AddMDKSModal = () => {
 		ghichu: ''
 	}) //note là các biến trong 
 
-	const { hesotinhthanhtien,phongban, mandaychuan, songuoi, songaythuchien, thanhtien, ghichu } = newMDKS //note
+	const { TygiaUSD,phongban, mandaychuan, songuoi, songaythuchien, thanhtien, ghichu } = newMDKS //note
 
 	const onChangeNewMDKSForm = event =>
 		setNewMDKS({ ...newMDKS, [event.target.name]: event.target.value })
@@ -42,7 +43,7 @@ const AddMDKSModal = () => {
 
 	const resetAddMDKSData = () => {
 		setNewMDKS({ 
-		hesotinhthanhtien:'',
+		TygiaUSD:'',
 		phongban: '',
 		mandaychuan:'',
 		songuoi: '',
@@ -66,13 +67,14 @@ const AddMDKSModal = () => {
 						<Form.Control
 							type='text'
 							placeholder='22,400'
-							name='hesotinhthanhtien'
+							name='TygiaUSD'
 							required
 							aria-describedby='title-help'
-							value={hesotinhthanhtien}
+							value={TygiaUSD}
 							onChange={onChangeNewMDKSForm}
 						/>
 					</Form.Group>
+										
 					<Form.Group>
 						<Form.Text id='title-help' muted as='h6'>
 							Phòng ban
@@ -138,7 +140,6 @@ const AddMDKSModal = () => {
 							rows={2}
 							placeholder=''
 							name='ghichu'
-							required
 							aria-describedby='ghichu-help'
 							value={ghichu}
 							onChange={onChangeNewMDKSForm}

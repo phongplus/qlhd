@@ -15,8 +15,7 @@ const ChiPhiVonSchema = new Schema({
         required: true
     },
     ngay: {
-        type: Date,
-        default: Date.now
+        type: Date
     },
     diengiai: {
         type: String,

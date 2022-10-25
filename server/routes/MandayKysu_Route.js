@@ -22,8 +22,8 @@ router.get('/', verifyToken, async(req, res) => {
 // @desc thêm  Create MandayKysu
 // @access Private
 router.post('/insert', verifyToken, async(req, res) => {
-    const { hesotinhthanhtien,phongban, mandaychuan, songuoi, songaythuchien, ghichu } = req.body
-    let thanhtien = req.body.hesotinhthanhtien * req.body.mandaychuan * req.body.songuoi * req.body.songaythuchien
+    const { TygiaUSD,phongban, mandaychuan, songuoi, songaythuchien, ghichu } = req.body
+    let thanhtien = req.body.TygiaUSD * req.body.mandaychuan * req.body.songuoi * req.body.songaythuchien
         // Simple validation
     if (!phongban)
         return res
@@ -32,6 +32,7 @@ router.post('/insert', verifyToken, async(req, res) => {
 
     try {
         const newMandayKysu = new MandayKysu({
+            TygiaUSD,
             phongban,
             mandaychuan,
             songuoi,
@@ -54,7 +55,7 @@ router.post('/insert', verifyToken, async(req, res) => {
 // @desc Update MandayKysu
 // @access Private
 router.put('/:id', verifyToken, async(req, res) => {
-    const { phongban, mandaychuan, songuoi, songaythuchien, ghichu } = req.body
+    const { TygiaUSD,phongban, mandaychuan, songuoi, songaythuchien, ghichu } = req.body
     let thanhtien = 22400 * req.body.mandaychuan * req.body.songuoi * req.body.songaythuchien
         // Simple validation
     if (!phongban)
@@ -64,6 +65,7 @@ router.put('/:id', verifyToken, async(req, res) => {
 
     try {
         let updatedMandayKysu = {
+            TygiaUSD,
             phongban,
             mandaychuan,
             songuoi,

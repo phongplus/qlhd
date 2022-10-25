@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const MandayKysuSchema = new Schema({
+    TygiaUSD: {
+        type: Number,
+        required: true
+    },
     phongban: {
         type: String,
         required: true
@@ -23,8 +27,7 @@ const MandayKysuSchema = new Schema({
         required: true
     },
     ghichu: {
-        type: String,
-        required: true
+        type: String
     },
     crateAt: {
         type: Date,

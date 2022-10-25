@@ -87,10 +87,10 @@ const CTHH = () => {
 									<th rowspan="2">STT</th>
 									<th rowspan="2" width="15%">Tên hàng</th>
 									<th rowspan="2" width="5%">Số lượng </th>
-									<th colspan="3 ">Giá vốn hàng bán Giá kho</th>
+									<th colspan="3">Giá vốn hàng bán Giá kho</th>
 									<th colspan="2 ">Doanh số Giá bán</th>
 									<th rowspan="2 " width="15%">Ghi chú </th>
-									<th rowspan="2">Action</th>
+									<th rowspan="2">Thao tác</th>
                    				 </tr>
 								<tr>
 									<th width='8%' as='pre'>Đơn giá FOB <br/>
@@ -107,10 +107,10 @@ const CTHH = () => {
 									<td>{stt++}  </td>
 									<td>{CTHH.tenhang}</td>
 									<td>{CTHH.soluong.toLocaleString()}</td>
-									<td>{CTHH.dongiaFOB}</td>
-									<td>{CTHH.dongiakho}</td>
+									<td>{CTHH.dongiaFOB.toLocaleString()}</td>
+									<td>{CTHH.dongiakho.toLocaleString()}</td>
 									<td>{CTHH.thanhtiengiakho.toLocaleString()}</td>
-									<td>{CTHH.dongiaban}</td>
+									<td>{CTHH.dongiaban.toLocaleString()}</td>
 									<td>{CTHH.thanhtiengiaban.toLocaleString()}</td>
 									<td>{CTHH.ghichu}  </td>
 									<td>

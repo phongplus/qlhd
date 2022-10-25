@@ -140,7 +140,6 @@ const AddCTHHModal = () => {
 							rows={3}
 							placeholder='Ghi chú'
 							name='ghichu'
-							required
 							aria-describedby='ghichu-help'
 							value={ghichu}
 							onChange={onChangeNewCTHHForm}

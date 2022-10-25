@@ -2,20 +2,29 @@ const express = require('express')
 const router = express.Router()
 const verifyToken = require('../middleware/Auth')
 const ChiPhiVon = require('../models/ChiPhiVon_Model')
+const ChiTietHangHoa = require('../models/ChiTietHangHoa_Model')
+
+
 
 // @route GET api/ChiPhiVon
 // @desc Get ChiPhiVon
 // @access Private
-router.get('/', verifyToken, async(req, res) => {
+router.get('/view', verifyToken, async(req, res) => {
     try {
-        const ChiPhiVons = await ChiPhiVon.find({ user: req.userId }).populate('user', [
+        const ChiPhiVons = await ChiPhiVon.find({ user: req.userId }) .populate('user', [
+            'username'
+        ])
+        const ChiTietHangHoas = await ChiTietHangHoa.find({ user: req.userId }).populate('user', [
             'username'
         ])
         res.json({ success: true, ChiPhiVons })
+        //res.json({ success: true, ChiTietHangHoas })
+        console.log(">>>>> test", {ChiTietHangHoas})
     } catch (error) {
         console.log(error)
         res.status(500).json({ success: false, message: 'Internal server error' })
     }
+
 })
 
 // @route POST api/ChiPhiVon
@@ -29,16 +38,17 @@ router.post('/insert', verifyToken, async(req, res) => {
         ngay,
         diengiai,
         sotienKHtra,
-
+        sotienTTNTP,
+        sotienhangconno,
         songay,
         laisuat,
-
+        chiphilaivay,
         ghichu
     } = req.body
-    let sotienTTNTP = req.body.giavon * 0.1
-    let sotienhangconno = sotienTTNTP - req.body.sotienKHtra
-    let chiphilaivay = (req.body.laisuat * req.body.songay * sotienhangconno) / 365
 
+    /* let KHTra = sotienKHtra/100*req.body.giatridaura
+    let chiphilaivay = (req.body.laisuat * req.body.songay * sotienhangconno) / 365
+    console.log('>>>>>>>',req.body.giavon) */
 
     // Simple validation
     if (!giavon || !giaban)
@@ -75,7 +85,7 @@ router.post('/insert', verifyToken, async(req, res) => {
 // @route PUT api/ChiPhiVon
 // @desc Update ChiPhiVon
 // @access Private
-router.put('/:id', verifyToken, async(req, res) => {
+router.put('/update/:id', verifyToken, async(req, res) => {
     const {
         giavon,
         giaban,
@@ -83,10 +93,8 @@ router.put('/:id', verifyToken, async(req, res) => {
         ngay,
         diengiai,
         sotienKHtra,
-
         songay,
         laisuat,
-
         ghichu
     } = req.body
     let sotienTTNTP = req.body.giavon * 0.1
@@ -133,7 +141,7 @@ router.put('/:id', verifyToken, async(req, res) => {
         res.json({
             success: true,
             message: 'Excellent progress!',
-            ChiPhiVon: updatedChiPhiVon
+            updatedChiPhiVon: updatedChiPhiVon //Trả về cho Client
         })
     } catch (error) {
         console.log(error)
@@ -144,7 +152,7 @@ router.put('/:id', verifyToken, async(req, res) => {
 // @route DELETE api/ChiPhiVon
 // @desc Delete ChiPhiVon
 // @access Private
-router.delete('/:id', verifyToken, async(req, res) => {
+router.delete('/delete/:id', verifyToken, async(req, res) => {
     try {
         const ChiPhiVon_DeleteCondition = { _id: req.params.id, user: req.userId }
         const deletedChiPhiVon = await ChiPhiVon.findOneAndDelete(ChiPhiVon_DeleteCondition)

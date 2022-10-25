@@ -74,7 +74,7 @@ router.post('/login', async(req, res) => {
     if (!username || !password)
         return res
             .status(400)
-            .json({ success: false, message: 'Missing username and/or password' })
+            .json({ success: false, message: 'Missing sfsdf fs sfusername and/or password' })
 
     try {
         // Check for existing user

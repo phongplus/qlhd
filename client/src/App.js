@@ -13,6 +13,7 @@ import CPTBLContextProvider from './contexts/CPTBLContext'
 import MDKSContextProvider from './contexts/MDKSContext'
 import CTHHContextProvider from './contexts/CTHHContext'
 import PhongbanContextProvider from './contexts/PhongbanContext'
+import CPVContextProvider from './contexts/CPVContext'
 
 import CPK from './views/CPK'
 import User from './views/User'
@@ -27,7 +28,6 @@ import Phongban from './views/Phongban'
 function App() {
 	return (
 		<AuthContextProvider>
-			<PostContextProvider>
 				<Router>
 					<Switch>
 						<Route exact path='/' component={Landing} />
@@ -52,15 +52,18 @@ function App() {
 							<ProtectedRoute exact path='/phongban' component={Phongban} />
 						</PhongbanContextProvider>
 						
-						<ProtectedRoute exact path='/chiphivon' component={CPV} />
+						<CPVContextProvider>
+							<CTHHContextProvider>
+								<ProtectedRoute exact path='/chiphivon' component={CPV} />
+							</CTHHContextProvider>
+						</CPVContextProvider>
+						
 						<ProtectedRoute exact path='/chiphitrienkhai' component={CPTK} />
 
 						<CPKContextProvider>
 							<ProtectedRoute exact path='/chiphikhac' component={CPK} />
 						</CPKContextProvider>
-						
-						
-						
+
 						<CPTBLContextProvider>
 							<ProtectedRoute exact path='/chiphibaolanh' component={CPTBL} />{/* new */}
 						</CPTBLContextProvider>
@@ -68,6 +71,7 @@ function App() {
 						<MDKSContextProvider>
 							<ProtectedRoute exact path='/mandaykysu' component={MDKS} />
 						</MDKSContextProvider>
+
 						<CTHHContextProvider>
 							<ProtectedRoute exact path='/chitiethanghoa' component={CTHH} />
 						</CTHHContextProvider>
@@ -79,7 +83,6 @@ function App() {
 						
 					</Switch>
 				</Router>
-			</PostContextProvider>
 		</AuthContextProvider>
 	)
 }

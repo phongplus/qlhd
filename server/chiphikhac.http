@@ -12,8 +12,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-  "username": "HoangHon",
-  "password": "jim"
+  "username": "admin",
+  "password": "123"
 }
 
 ###
@@ -31,7 +31,7 @@ Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmV
 ###
 
 GET http://localhost:5000/api/chiphikhac
-Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmVlNTVmNmZhYzcyZTE0MjRhMGEyMTkiLCJpYXQiOjE2NjAwMjYxNTh9.k7hR1zdTrDe0jyTypzIga0fX1j5pMtXB6kVaiBvUOQg
+Authorization: HoangHon eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzFiZjg5ZDllNmU0NTJmNTAzMzM3NzciLCJpYXQiOjE2NjU1Njc3MTF9.QHsSNFdq2KvBV43d9EcfQ4AIBJPHFmwSTJBcrNE1pM4
 
 ###
 
