@@ -21,7 +21,7 @@ const UserSchema = new Schema({
 		type: Number
 	},
 	roleId: {
-		type: Number
+		type: String
 	},
 	role: {
 		type: String

@@ -2,8 +2,6 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const hostname = 'localhost'
-
 const authRouter = require('./routes/Auth_Route')
 const postRouter = require('./routes/Post_Route')
 const userRouter = require('./routes/Users_Route')
@@ -23,7 +21,7 @@ const connectDB = async() => {
             //Ket noi Cloud
             //`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@qlhd.8z45v.mongodb.net/?retryWrites=true&w=majority`, {
             //ket noi Mongodb on local   
-            `mongodb://localhost:27017/QLHD-HNN`, {
+            `mongodb://localhost:27017/QLHD1`, {
                 useCreateIndex: true,
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
@@ -41,6 +39,9 @@ const connectDB = async() => {
 connectDB()
 
 const app = express()
+app.get('/', (req, res) => {
+    return res.send('index server');
+});
 app.use(express.json())
 app.use(cors())
 
@@ -56,4 +57,5 @@ app.use('/api/phongban', PhongbanRouter)
 
 const PORT = process.env.PORT// || 5000
 
-app.listen(PORT, () => console.log(`Server started on port http://${hostname} ${PORT}`))
+app.listen(PORT, () => {console.log(`Server started on port ${PORT}`)
+   })

@@ -13,12 +13,13 @@ const RegisterForm = () => {
 	const [registerForm, setRegisterForm] = useState({
 		username: '',
 		password: '',
-		confirmPassword: ''
+		confirmPassword:'',
+		roleId: '',
 	})
 
 	const [alert, setAlert] = useState(null)
 
-	const { username, password, confirmPassword } = registerForm
+	const { username, password, confirmPassword,roleId } = registerForm
 
 	const onChangeRegisterForm = event =>
 		setRegisterForm({
@@ -78,6 +79,16 @@ const RegisterForm = () => {
 						name='confirmPassword'
 						required
 						value={confirmPassword}
+						onChange={onChangeRegisterForm}
+					/>
+				</Form.Group>
+				<Form.Group>
+					<Form.Control
+						type='text'
+						placeholder='roleId'
+						name='roleId'
+						required
+						value={roleId}
 						onChange={onChangeRegisterForm}
 					/>
 				</Form.Group>
