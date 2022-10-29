@@ -1,7 +1,7 @@
 module.exports = {
   apps : [{
-    name: 'qlhd_hnn',
-    script: 'index.js',
+    name: 'client',
+    script: './src/index.js',
     cwd: __dirname,
     instances: 1,
     autorestart: true,
@@ -14,7 +14,7 @@ module.exports = {
 
   deploy : {
     production : {
-      user : 'nhhon110100@gmail.com',
+      user : 'admin_hh',
       host : '103.88.121.45',
       ref  : 'origin/main',
       repo : 'git@gitlab.honeynet.vn:63379/outsourcing-projects/qlhd_hnn.git',
