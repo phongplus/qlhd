@@ -83,7 +83,7 @@ const CPV = () => {
 					<Card.Body>
 						<Table responsive="sm" striped bordered hover size="sm" >
 							<thead>
-								<tr className='text-left'>
+								{/* <tr className='text-left'>
 									<th>Giá vốn:</th>
 									<th colSpan={10}>{CPV.giavon.toLocaleString()}</th>
 								 </tr>
@@ -94,7 +94,7 @@ const CPV = () => {
 								 <tr className='text-left'>
 									<th>Giá vốn:</th>
 									<th colSpan={10}>{CPV.giatridaura.toLocaleString()}</th>
-								 </tr>
+								 </tr> */}
 								 <tr>
 									<th>STT</th>
 									<th>Ngày</th>
