@@ -1,11 +1,8 @@
-import React from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { useContext, useState } from 'react'
 import { CPVContext } from '../../contexts/CPVContext'
-import { CTHHContext } from '../../contexts/CTHHContext'
-import { useEffect } from 'react'
 
 const AddCPVModal = () => {
 	// Contexts
@@ -31,32 +28,8 @@ const AddCPVModal = () => {
 		chiphilaivay: '',
 		chichu: ''
 	})
-	 
+
 	const { giavon,giaban,giatridaura,ngay,diengiai,sotienKHtra,sotienTTNTP,sotienhangconno,songay,laisuat,chiphilaivay,ghichu } = newCPV
-	
-	/*Lấy giá vốn, Gia bán từ model Chitiet hàng hóa*/
-
-	const {
-		CTHHState: { CTHH, CTHHs, CTHHsLoading },
-		getCTHHs,
-	} = useContext(CTHHContext)	
-	// hàm tính tổng 
-	function sumArray(mang){
-    let sum = 0;
-    mang.map(function(value){
-        sum += value;
-    });
-    return sum;
-	}
-	// Start: Get all CTHHs
-	useEffect(() => getCTHHs(), [])
-	let tongthanhtiengiakho =  sumArray(CTHHs.map((CTHH) => CTHH.thanhtiengiakho))//note
-	let tongthanhtiengiaban =  sumArray(CTHHs.map((CTHH) => CTHH.thanhtiengiaban))//note
-	let VAT = 0.1
-
-	//giatridaura = tongthanhtiengiaban+tongthanhtiengiaban * VAT
-	let SotienNTP = tongthanhtiengiakho + tongthanhtiengiakho * VAT
-
 
 	const onChangeNewCPVForm = event =>
 		setNewCPV({ ...newCPV, [event.target.name]: event.target.value })
@@ -74,18 +47,19 @@ const AddCPVModal = () => {
 
 	const resetAddCPVData = () => {
 		setNewCPV({ 
-		giavon: tongthanhtiengiakho,
-		giaban: tongthanhtiengiaban,
-		giatridaura: tongthanhtiengiaban+tongthanhtiengiaban*0.1,
-		ngay: '',
-		diengiai: '',
-		sotienKHtra: '',
-		sotienTTNTP: tongthanhtiengiakho+tongthanhtiengiakho*0.1,
-		sotienhangconno: tongthanhtiengiaban-sotienKHtra,
-		songay: '',
-		laisuat: '',
-		chiphilaivay: '',
-		chichu: '' })
+			giavon: '',
+			giaban: '',
+			giatridaura: '',
+			ngay: '',
+			diengiai: '',
+			sotienKHtra: '',
+			sotienTTNTP: '',
+			sotienhangconno: '',
+			songay: '',
+			laisuat: '',
+			chiphilaivay: '',
+			chichu: ''
+		 })
 		setShowAddCPVModal(false)
 	}
 
@@ -106,7 +80,7 @@ const AddCPVModal = () => {
 							name='giavon'
 							required
 							aria-describedby='giavon'
-							value={giavon.toLocaleString()}
+							value={giavon}
 							onChange={onChangeNewCPVForm}
 						/>						
 					</Form.Group>

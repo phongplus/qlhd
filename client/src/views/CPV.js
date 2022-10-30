@@ -1,25 +1,23 @@
-
 import { CPVContext } from '../contexts/CPVContext'//Note GET DELETE
 import { AuthContext } from '../contexts/AuthContext'
-import { CTHHContext } from '../contexts/CTHHContext'
-
 import { useContext, useEffect } from 'react'
-import { useState } from 'react'
+/* import { useState } from 'react' */
 import Spinner from 'react-bootstrap/Spinner'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Toast from 'react-bootstrap/Toast'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+/* import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
-import Col from 'react-bootstrap/Col'
+import Col from 'react-bootstrap/Col' 
+import addIcon from '../assets/plus-circle-fill.svg'*/
 
 import AddCPVModal from '../components/chiphivon/AddCPVModal'//Note
-import AddCPVTable from '../components/chiphivon/AddCPVTable'//Note
 import UpdateCPVModal from '../components/chiphivon/UpdateCPVModal'//Note
-import addIcon from '../assets/plus-circle-fill.svg'
-import Table from 'react-bootstrap/Table'
 import ActionButtons_CPV from '../components/chiphivon/ActionButtons_CPV'
+
+
+import Table from 'react-bootstrap/Table'
 
 const CPV = () => {
 	// Contexts
@@ -37,11 +35,7 @@ const CPV = () => {
 		setShowToast
 	} = useContext(CPVContext)
 
-	const {
-		CTHHState: { CTHH, CTHHs, CTHHsLoading },
-		getCTHHs,
-	} = useContext(CTHHContext)	
-	// hàm tính tổng 
+	// hàm tính tổng thành tiền
 	function sumArray(mang){
     let sum = 0;
     mang.map(function(value){
@@ -49,23 +43,14 @@ const CPV = () => {
     });
     return sum;
 	}
-	//Định dạng hiển thị số
-	function formatCash(str) {
- 	return str.split('').reverse().reduce((prev, next, index) => {
- 		return ((index % 3) ? next : (next + ',')) + prev
- 	})
-	}
+
 	// Start: Get all CPVs
 	useEffect(() => getCPVs(), [])
-	// Start: Get all CTHHs
-	useEffect(() => getCTHHs(), [])
 
-	const Giavon =  sumArray(CTHHs.map((CTHH) => CTHH.thanhtiengiakho))//note
-	let Giaban =  sumArray(CTHHs.map((CTHH) => CTHH.thanhtiengiaban))//note
-	let Giatridaura = Giaban * 0.1
 	let body = null
 	let stt = 1
-	const tong =  sumArray(CPVs.map((CPV) => CPV.giavon))//note
+	const tongsotienkhachhangtra =  sumArray(CPVs.map((CPV) => CPV.sotienKHtra))//note
+	const tongsotienthanhtoanNTP =  sumArray(CPVs.map((CPV) => CPV.sotienTTNTP))//note
 	if (CPVsLoading) {
 		body = (
 			<div className='spinner-container'>
@@ -76,9 +61,9 @@ const CPV = () => {
 		body = (
 			<>
 				<Card className='text-center mx-5 my-5'>
-					<Card.Header as='h5'>Form 2: Chi phí vốn</Card.Header>
+					<Card.Header as='h1'>CHI PHÍ VỐN</Card.Header>
 					<Card.Body>
-						<Card.Title>Chưa có dữ liệu vui lòng click Thêm!</Card.Title>
+						<Card.Title>Chưa có dữ liệu</Card.Title>
 						<Button
 							variant='primary'
 							onClick={setShowAddCPVModal.bind(this, true)}
@@ -94,29 +79,34 @@ const CPV = () => {
 		body = (
 			<>
 				<Card className='text-center mx-5 my-5'>
-					<Card.Header as='h5'>Form 2: Chi phí vốn</Card.Header>
+					<Card.Header as='h1'>CHI PHÍ VỐN</Card.Header>
 					<Card.Body>
-						<Table  striped bordered hover size="sm">
+						<Table responsive="sm" striped bordered hover size="sm" >
 							<thead>
-								<tr>
-									<th colspan="5">Giá vốn: {Giavon.toLocaleString()} </th>
-									<th colspan="5">Giá bán: {Giaban.toLocaleString()} </th>									
-								</tr>
-								<tr>
-									<th colspan="5">Số tiền TT NTP = Giá vốn + 10%VAT: {Giavon} + {Giavon*0.1} = {(Giavon+Giavon*0.1).toLocaleString()}  </th>
-									<th colspan="5">Giá trị đầu ra:{Giaban} + {Giaban*0.1} = {(Giaban+Giatridaura).toLocaleString()}</th>
-								</tr>								
-								<tr>
+								<tr className='text-left'>
+									<th>Giá vốn:</th>
+									<th colSpan={10}>{CPV.giavon.toLocaleString()}</th>
+								 </tr>
+								<tr className='text-left'>
+									<th>Giá vốn:</th>
+									<th colSpan={10}>{CPV.giaban.toLocaleString()}</th>
+								 </tr>
+								 <tr className='text-left'>
+									<th>Giá vốn:</th>
+									<th colSpan={10}>{CPV.giatridaura.toLocaleString()}</th>
+								 </tr>
+								 <tr>
 									<th>STT</th>
 									<th>Ngày</th>
-									<th width='15%'>Diễn giải</th>
-									<th> Số tiền KH trả </th>
-									<th> Số tiền hàng còn nợ </th>
-									<th> Số ngày </th>
-									<th> Lãi suất </th>
-									<th> Chi phí lãi vay </th>
-									<th width='20%'>Ghi chú</th>
-									<th> Thao tác </th>
+									<th>Diễn giải</th>
+									<th>Số tiền KH trả</th>
+									<th>Số tiền Thanh toán NTP</th>
+									<th>Số tiền hàng còn nợ</th>
+									<th>Số Ngày</th>
+									<th>Lãi suất</th>
+									<th>Chi phí lãi vay</th>
+									<th>Ghi chú</th>
+									<th>Thao tác</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -125,11 +115,12 @@ const CPV = () => {
 									<td>{stt++}  </td>
 									<td>{CPV.ngay}</td>
 									<td>{CPV.diengiai}</td>
-									<td>{(CPV.sotienKHtra).toLocaleString()}</td>
-									<td>{CPV.sotienhangconno}</td>
+									<td>{CPV.sotienKHtra.toLocaleString()}</td>
+									<td>{CPV.sotienTTNTP.toLocaleString()}</td>
+									<td>{CPV.sotienhangconno.toLocaleString()}</td>
 									<td>{CPV.songay}</td>
-									<td>{CPV.laisuat}</td>
-									<td>{CPV.chiphilaivay}</td>
+									<td>{CPV.laisuat.toLocaleString()}</td>
+									<td>{CPV.chiphilaivay.toLocaleString()}</td>
 									<td>{CPV.ghichu}  </td>
 									<td>
 									<ActionButtons_CPV _id={CPV._id} />
@@ -140,10 +131,14 @@ const CPV = () => {
 								))
 								}
 								<tr>
-									<td colSpan={5} >Tổng</td>
-									<td>{tong.toLocaleString()}</td>
-									<td>{Giavon.toLocaleString()}</td>
-									<td>{Giaban.toLocaleString()}</td>
+									<td colSpan={3} >Tổng</td>
+									<td>{tongsotienkhachhangtra.toLocaleString()}</td>
+									<td>{tongsotienthanhtoanNTP.toLocaleString()}</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
 									<td></td>
 								</tr>
 							</tbody>
@@ -163,7 +158,7 @@ const CPV = () => {
 	return (
 		<>
 			{body}
-			<AddCPVTable/>
+			<AddCPVModal />
 			{CPV !== null && <UpdateCPVModal />}
 			{/* After CPV is added, show toast */}
 			<Toast

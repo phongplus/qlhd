@@ -42,8 +42,16 @@ function App() {
 							render={props => <Auth {...props} authRoute='register' />}
 						/>
 						<>
-												
-						<ProtectedRoute exact path='/PTHD' component={PTHD} />
+						<CTHHContextProvider>
+							<ProtectedRoute exact path='/chitiethanghoa' component={CTHH} />
+						</CTHHContextProvider>
+
+						
+						<CTHHContextProvider>
+							<ProtectedRoute exact path='/PTHD' component={PTHD} />
+						</CTHHContextProvider>
+						
+
 						<UserContextProvider>
 							<ProtectedRoute exact path='/user' component={User} />
 						</UserContextProvider>
@@ -57,9 +65,11 @@ function App() {
 								<ProtectedRoute exact path='/chiphivon' component={CPV} />
 							</CTHHContextProvider>
 						</CPVContextProvider>
-						
-						<ProtectedRoute exact path='/chiphitrienkhai' component={CPTK} />
 
+						<CTHHContextProvider>
+							<ProtectedRoute exact path='/chiphitrienkhai' component={CPTK} />
+						</CTHHContextProvider>
+						
 						<CPKContextProvider>
 							<ProtectedRoute exact path='/chiphikhac' component={CPK} />
 						</CPKContextProvider>
@@ -72,11 +82,9 @@ function App() {
 							<ProtectedRoute exact path='/mandaykysu' component={MDKS} />
 						</MDKSContextProvider>
 
-						<CTHHContextProvider>
-							<ProtectedRoute exact path='/chitiethanghoa' component={CTHH} />
-						</CTHHContextProvider>
+
 						
-						{/* <ProtectedRoute exact path='/dashboard' component={Dashboard} /> */}
+						{/*<ProtectedRoute exact path='/dashboard' component={Dashboard} />*/}
 						
 						</>
 

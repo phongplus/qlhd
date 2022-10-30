@@ -1,11 +1,8 @@
-import React from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { CPVContext } from '../../contexts/CPVContext'
-import { CTHHContext } from '../../contexts/CTHHContext'
-import { useEffect } from 'react'
 
 const UpdateCPVModal = () => {
 	// Contexts
@@ -22,30 +19,7 @@ const UpdateCPVModal = () => {
 
 	useEffect(() => setUpdatedCPV(CPV), [CPV])
 
-	const {giavon,giaban,giatridaura,ngay,diengiai,sotienKHtra,sotienTTNTP,sotienhangconno,songay,laisuat,chiphilaivay,ghichu } = updatedCPV
-/*Lấy giá vốn, Gia bán từ model Chitiet hàng hóa*/
-
-	const {
-		CTHHState: { CTHH, CTHHs, CTHHsLoading },
-		getCTHHs,
-	} = useContext(CTHHContext)	
-	// hàm tính tổng 
-	function sumArray(mang){
-    let sum = 0;
-    mang.map(function(value){
-        sum += value;
-    });
-    return sum;
-	}
-	// Start: Get all CTHHs
-	useEffect(() => getCTHHs(), [])
-	const tongthanhtiengiakho =  sumArray(CTHHs.map((CTHH) => CTHH.thanhtiengiakho))//note
-	let tongthanhtiengiaban =  sumArray(CTHHs.map((CTHH) => CTHH.thanhtiengiaban))//note
-	let VAT = 0.1
-	let Giatridaura = tongthanhtiengiaban+tongthanhtiengiaban * VAT
-	let SotienTTNTP = tongthanhtiengiakho + tongthanhtiengiakho * VAT
-	let STHCN = SotienTTNTP - sotienKHtra
-	/*End Lấy giá vốn, Gia bán từ model Chitiet hàng hóa*/
+	const { giavon,giaban,giatridaura,ngay,diengiai,sotienKHtra,sotienTTNTP,sotienhangconno,songay,laisuat,chiphilaivay,ghichu } = updatedCPV
 
 	const onChangeUpdatedCPVForm = event =>
 		setUpdatedCPV({ ...updatedCPV, [event.target.name]: event.target.value })
@@ -84,7 +58,7 @@ const UpdateCPVModal = () => {
 							name='giavon'
 							required
 							aria-describedby='giavon'
-							value={giavon}
+							value={giavon.toLocaleString()}
 							onChange={onChangeUpdatedCPVForm}
 						/>						
 					</Form.Group>
@@ -98,23 +72,37 @@ const UpdateCPVModal = () => {
 							name='giaban'
 							required
 							aria-describedby='giaban'
-							value={giaban}
+							value={giaban.toLocaleString()}
 							onChange={onChangeUpdatedCPVForm}
 						/>						
 					</Form.Group>
 					<Form.Group>
 						<Form.Text id='giatridaura' muted as='h6'>
-							Giá trị đầu ra
+							Giá trị đầu ra = Giá bán + % VAT
 						</Form.Text>
 						<Form.Control
 							type='text'
-							placeholder='Nhập số'
+							placeholder='nhập % VAT'
 							name='giatridaura'
 							required
 							aria-describedby='giatridaura'
-							value={Giatridaura}
+							value={giatridaura.toLocaleString()}
 							onChange={onChangeUpdatedCPVForm}
 						/>						
+					</Form.Group>
+					<Form.Group>
+						<Form.Text id='sotienKHtra' muted as='h6'>
+							Số tiền Khách hàng trả = (Tổng giá bán + VAT)* tỷ lệ % KH trả
+						</Form.Text>
+						<Form.Control
+							type='text'
+							placeholder='Nhập tỷ lệ %'
+							name='sotienKHtra'
+							required
+							aria-describedby='sotienKHtra'
+							value={sotienKHtra}
+							onChange={onChangeUpdatedCPVForm}
+						/>
 					</Form.Group>
 					<Form.Group>
 						<Form.Text id='ngay' muted as='h6'>
@@ -122,7 +110,7 @@ const UpdateCPVModal = () => {
 						</Form.Text>
 						<Form.Control
 							type='text'
-							placeholder=''
+							placeholder='ngay'
 							name='ngay'
 							required
 							aria-describedby='ngay'
@@ -144,23 +132,10 @@ const UpdateCPVModal = () => {
 							onChange={onChangeUpdatedCPVForm}
 						/>
 					</Form.Group>
-					<Form.Group>
-						<Form.Text id='sotienKHtra' muted as='h6'>
-							Số tiền Khách hàng trả
-						</Form.Text>
-						<Form.Control
-							type='text'
-							placeholder='sotienKHtra'
-							name='sotienKHtra'
-							required
-							aria-describedby='sotienKHtra'
-							value={sotienKHtra}
-							onChange={onChangeUpdatedCPVForm}
-						/>
-					</Form.Group>
+					
 					<Form.Group>
 						<Form.Text id='sotienTTNTP' muted as='h6'>
-							Số tiền TT NTP
+							Số tiền TT NTP = Giá vốn + VAT
 						</Form.Text>
 						<Form.Control
 							type='text'
@@ -168,13 +143,13 @@ const UpdateCPVModal = () => {
 							name='sotienTTNTP'
 							required
 							aria-describedby='sotienTTNTP'
-							value={SotienTTNTP}
+							value={sotienTTNTP}
 							onChange={onChangeUpdatedCPVForm}
 						/>
 					</Form.Group>
 					<Form.Group>
 						<Form.Text id='sotienhangconno' muted as='h6'>
-							Số tiền hàng còn nợ
+							Số tiền hàng còn nợ = TTNTP - Số tiền KH trả
 						</Form.Text>
 						<Form.Control
 							type='text'
@@ -216,7 +191,7 @@ const UpdateCPVModal = () => {
 					</Form.Group>
 					<Form.Group>
 						<Form.Text id='chiphilaivay' muted as='h6'>
-							Chi phí lãi vay
+							Chi phí lãi vay = (Lãi xuất * Số ngày * Số tiền hàng còn nợ)/365
 						</Form.Text>
 						<Form.Control
 							type='text'

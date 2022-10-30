@@ -95,7 +95,7 @@ const AddMDKSModal = () => {
 						</Form.Text>
 						<Form.Control
 							type='text'
-							placeholder='Nhập chuỗi'
+							placeholder='Nhập số'
 							name='mandaychuan'
 							required
 							aria-describedby='mandaychuan-help'

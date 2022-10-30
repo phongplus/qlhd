@@ -3,7 +3,7 @@ export const apiUrl =
 		? 'http://103.88.121.45:5000/api'
 		: 'http://103.88.121.45:5000/api'
 
-export const LOCAL_STORAGE_TOKEN_NAME = 'learnit-mern'
+export const LOCAL_STORAGE_TOKEN_NAME = 'qlhd_hnn'
 
 export const LOADED_SUCCESS = 'LOADED_SUCCESS'
 export const LOADED_FAIL = 'LOADED_FAIL'
