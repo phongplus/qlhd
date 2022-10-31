@@ -65,7 +65,7 @@ const User = () => {
 		body = (
 			<>
 				<Card className='text-center mx-5 my-5'>
-					<Card.Header as='h2'>QUẢN LÝ NGƯỜI DÙNG</Card.Header>
+					<Card.Header as='h2'>Thông tin người dùng</Card.Header>
 					<Card.Body>
 						<Card.Title>CHƯA CÓ USER</Card.Title>
 						<Card.Text>
@@ -86,7 +86,7 @@ const User = () => {
 		body = (
 			<>
 				<Card className='text-center mx-5 my-5'>
-					<Card.Header as='h2'>QUẢN LÝ NGƯỜI DÙNG </Card.Header>
+					<Card.Header as='h2'>Thông tin người dùng </Card.Header>
 					<Card.Body>
 						<Table  striped bordered hover size="sm">
 							<thead >
@@ -97,7 +97,7 @@ const User = () => {
 								<th>Email</th>
 								<th>Giới tính</th>
 								<th>RoleID</th>
-								<th>Role</th>
+								<th>Quyền hạn</th>
 								<th>Trạng thái</th>
 								<th>Ngày tạo</th>
 								<th>Thao tác</th>

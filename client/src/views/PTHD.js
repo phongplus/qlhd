@@ -62,7 +62,7 @@ const PTHD = () => {
 		body = (
 			<>
 				<Card className='text-center mx-5 my-5'>
-					<Card.Header as='h1'>CHI TIẾT HÀNG HÓA</Card.Header>
+					<Card.Header as='h1'>BẢNG PHÂN TÍCH HIỆU QUẢ HỢP ĐỒNG/DỰ ÁN</Card.Header>
 					<Card.Body>
 						<Card.Title>Chưa có dữ liệu</Card.Title>
 						<Button

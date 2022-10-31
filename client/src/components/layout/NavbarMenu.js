@@ -1,8 +1,11 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import learnItLogo from '../../assets/logo.svg'
+import Dropdown from 'react-bootstrap/Dropdown'
 import logoutIcon from '../../assets/logout.svg'
-import Button from 'react-bootstrap/Button'
+/* import NavDropdown from 'react-bootstrap/NavDropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import learnItLogo from '../../assets/logo.svg'*/
+import Button from 'react-bootstrap/Button' 
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
 import { useContext } from 'react'
@@ -26,13 +29,6 @@ const NavbarMenu = () => {
 					<Nav className='mr-auto'>
 						<Nav.Link
 							className='font-weight-bolder text-white'
-							to='/user'
-							as={Link}
-						>
-							User
-						</Nav.Link>
-						<Nav.Link
-							className='font-weight-bolder text-white'
 							to='/PTHD'
 							as={Link}
 						>
@@ -43,64 +39,66 @@ const NavbarMenu = () => {
 							to='/chitiethanghoa'
 							as={Link}
 						>
-							CT hàng hóa
+							CT Hàng hóa
 						</Nav.Link>
 						<Nav.Link
 							className='font-weight-bolder text-white'
 							to='/chiphivon'
 							as={Link}
 						>
-							CP vốn
+							CP Vốn
 						</Nav.Link>
 						<Nav.Link
 							className='font-weight-bolder text-white'
 							to='/chiphitrienkhai'
 							as={Link}
 						>
-							CP triển khai
+							CP Triển khai
 						</Nav.Link>
 						<Nav.Link
 							className='font-weight-bolder text-white'
 							to='/mandaykysu'
 							as={Link}
 						>
-							Mandaykysu
+							Manday Kỹ sư
 						</Nav.Link>
 						<Nav.Link
 							className='font-weight-bolder text-white'
 							to='/chiphibaolanh'
 							as={Link}
 						>
-							CP thư bảo lãnh
+							CP Thư bảo lãnh
 						</Nav.Link>
 						<Nav.Link
 							className='font-weight-bolder text-white'
 							to='/chiphikhac'
 							as={Link}
 						>
-							CP khác
+							CP Khác
 						</Nav.Link>
 					</Nav>
-
-					<Nav>
-						<Nav.Link className='font-weight-bolder text-white' disabled>
-							Xin chào {username}
-						</Nav.Link>
-						<Button
-							variant='info'
-							className='font-weight-bolder text-white'
-							onClick={logout}
-						>
-							<img
+					<Dropdown>
+						<Dropdown.Toggle id="dropdown-button-dark-example1" variant="info">
+						Xin chào {username}
+						</Dropdown.Toggle>
+						<Dropdown.Menu variant="primary">
+							<Dropdown.Item to='/user'as={Link}>
+								Thông tin tài khoản
+							</Dropdown.Item>
+							<Dropdown.Item href="#/action-2">Đổi mật khẩu</Dropdown.Item>
+							<Dropdown.Divider />
+							<Dropdown.Item onClick={logout} active>
+								<img
 								src={logoutIcon}
 								alt='logoutIcon'
 								width='18'
 								height='18'
 								className='mr-2'
-							/>
-							Đăng xuất
-						</Button>
-					</Nav>
+								/>
+								Đăng xuất
+							</Dropdown.Item>
+						</Dropdown.Menu>
+					</Dropdown>
 				</Navbar.Collapse>
 			</Navbar>
 

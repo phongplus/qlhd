@@ -93,13 +93,16 @@ router.put('/update/:id', verifyToken, async(req, res) => {
         ngay,
         diengiai,
         sotienKHtra,
+        sotienTTNTP,
+        sotienhangconno,
         songay,
         laisuat,
+        chiphilaivay,
         ghichu
     } = req.body
-    let sotienTTNTP = req.body.giavon * 0.1
-    let sotienhangconno = sotienTTNTP - req.body.sotienKHtra
-    let chiphilaivay = (req.body.laisuat * req.body.songay * sotienhangconno) / 365
+    //let sotienTTNTP = req.body.giavon * 0.1
+    //let sotienhangconno = sotienTTNTP - req.body.sotienKHtra
+    //let chiphilaivay = (req.body.laisuat * req.body.songay * sotienhangconno) / 365
 
 
     // Simple validation
