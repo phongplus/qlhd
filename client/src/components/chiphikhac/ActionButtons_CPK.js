@@ -14,10 +14,8 @@ const ActionButtons_CPK = ({ _id }) => {
 		findCPK(CPKId)
 		setShowUpdateCPKModal(true)
 	}
-
 	return (
 		<>
-			
 			<Button className='post-button' onClick={chooseCPK.bind(this, _id)}>
 				<img src={editIcon} alt='edit' width='24' height='24' />
 			</Button>
