@@ -3,12 +3,12 @@ const router = express.Router();
 const verifyToken = require("../middleware/Auth");
 const ChiphiTrienKhai = require("../models/ChiphiTrienKhai_Model");
 
-router.get("/", verifyToken, async (req, res) => {
+router.get("/:id", verifyToken, async (req, res) => {
   try {
-    const DataChiphiTrienKhai = await ChiphiTrienKhai.find().populate("user", [
-      //{ user: req.userId }
-      "username",
-    ]);
+    const DataChiphiTrienKhai = await ChiphiTrienKhai.find({
+      hopdong: req.params.id,
+    }).populate("user", ["username"]);
+
     res.json({ success: true, DataChiphiTrienKhai });
   } catch (error) {
     console.log(error);
